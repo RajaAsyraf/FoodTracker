@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Inventory::class);
+            $table->foreignIdFor(Inventory::class)->constrained();
             $table->string('name');
             $table->double('quantity')->default(0);
             $table->string('unit')->nullable();
