@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -21,6 +22,9 @@ Route::get('/', function () {
 Route::group([['middleware' => 'auth']], function() {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');
+    });
+    Route::controller(ItemController::class)->group(function () {
+        Route::post('/item', 'store')->name('item.store');
     });
 });
 
