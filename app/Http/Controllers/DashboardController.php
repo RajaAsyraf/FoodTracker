@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\ItemService;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(ItemService $item)
     {
-        $items = auth()->user()->inventory->items ?? [];
+        $items = $item->all();
         return view('dashboard', compact('items'));
     }
 }
