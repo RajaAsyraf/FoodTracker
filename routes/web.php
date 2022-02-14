@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/dashboard', 'index')->name('dashboard');
     });
     Route::controller(ItemController::class)->group(function () {
+        Route::get('/item', 'create')->name('item.create');
         Route::post('/item', 'store')->name('item.store');
     });
 });

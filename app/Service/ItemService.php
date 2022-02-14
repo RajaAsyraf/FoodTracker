@@ -11,7 +11,7 @@ class ItemService
 
     public function add($name, $quantity, $unit, $expiredAt)
     {
-        return auth()->user()->inventory->items->create([
+        return auth()->user()->inventory->items()->create([
             'name' => $name,
             'quantity' => $quantity,
             'unit' => $unit,
