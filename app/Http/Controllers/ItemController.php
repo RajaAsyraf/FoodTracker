@@ -22,7 +22,7 @@ class ItemController extends Controller
             'location' => ['nullable'],
         ]);
         try {
-            $item->add($request->name, $request->quantity, $request->unit, $request->expiredAt);
+            $item->add($request->name, $request->quantity, $request->unit, $request->expiredAt, $request->location);
         } catch (\Exception $e) {
             dd($e);
         }

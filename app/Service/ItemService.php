@@ -9,13 +9,14 @@ class ItemService
         return auth()->user()->inventory->items ?? [];
     }
 
-    public function add($name, $quantity, $unit, $expiredAt)
+    public function add($name, $quantity, $unit, $expiredAt, $location)
     {
         return auth()->user()->inventory->items()->create([
             'name' => $name,
             'quantity' => $quantity,
             'unit' => $unit,
             'expired_at' => $expiredAt,
+            'location' => $location,
         ]);
     }
 
